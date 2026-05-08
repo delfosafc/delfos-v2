@@ -1,0 +1,36 @@
+[project]
+name = "delfos"
+version = "0.1.0"
+description = "Library for controlling the Delfos geophysical equipment (Central + UASGs) over serial."
+authors = [{ name = "Pablo Pizutti" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pyserial>=3.5",
+    "pandas>=2.0",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+cli = ["typer>=0.12"]
+tui = ["textual>=0.50"]
+pi = ["RPi.GPIO>=0.7; sys_platform == 'linux'"]
+dev = ["pytest>=8.0", "ruff>=0.4"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["delfos"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["hw: tests that require connected hardware"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

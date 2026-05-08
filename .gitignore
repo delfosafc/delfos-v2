@@ -1,0 +1,35 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+*.egg-info/
+dist/
+build/
+
+# data outputs (created at runtime)
+files/*/output/
+files/*/res/
+files/*/data/
+files/*/sp/
+files/*/sev/
+files/*/processed/
+files/*/avg/
+files/*/seismic/
+files/*/seg2/
+files/*/seg2 split/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Claude Code — settings locais (não compartilhar)
+.claude/settings.local.json
