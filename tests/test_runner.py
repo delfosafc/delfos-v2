@@ -27,9 +27,9 @@ from delfos.units import Units
 
 def _write_addr(p: Path) -> Path:
     p.write_text(
-        "id;end1;end2;serial;order;channel\n"
-        "1;0x10;0x80;100;0;1\n"
-        "2;0x20;0xff;200;1;255\n",
+        "addr;kind;slot;channel;serial\n"
+        "0x1080;channel;;1;100\n"
+        "0x20ff;switch;1;;200\n",
         encoding="utf-8",
     )
     return p

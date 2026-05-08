@@ -72,6 +72,15 @@ LINHA_OPT = typer.Option(1, "--linha", help="Linha do dipolo (1=data, 2=power)."
 STEP_STOP_OPT = typer.Option(
     None, "--step-stop", help="Para após este step (inclusive)."
 )
+MIGRATE_SRC_ARG = typer.Argument(
+    ..., exists=True, dir_okay=False, help="Caminho do .json v1 a converter."
+)
+MIGRATE_DST_ARG = typer.Argument(
+    None, help="Saída .toml. Default: mesmo nome com extensão .toml."
+)
+MIGRATE_OVERWRITE_OPT = typer.Option(
+    False, "--overwrite", "-f", help="Sobrescrever se o destino existir."
+)
 
 
 # ------------------------------------------------------------------- helpers
@@ -276,6 +285,26 @@ def run(
         result = session.run_job(job, step_stop=step_stop)
     if result.aborted:
         raise typer.Exit(code=1)
+
+
+@app.command(name="migrate-job", help="Converte um job JSON v1 para TOML v2.")
+def migrate_job(
+    json_path: Path = MIGRATE_SRC_ARG,
+    out_path: Path | None = MIGRATE_DST_ARG,
+    overwrite: bool = MIGRATE_OVERWRITE_OPT,
+) -> None:
+    from delfos.jobs.migrate import migrate_job_v1_to_v2
+
+    if out_path is None:
+        out_path = json_path.with_suffix(".toml")
+    if out_path.exists() and not overwrite:
+        console.print(
+            f"[red]erro:[/] {out_path} já existe. Use --overwrite para sobrescrever."
+        )
+        raise typer.Exit(code=2)
+    toml_text = migrate_job_v1_to_v2(json_path)
+    out_path.write_text(toml_text, encoding="utf-8")
+    console.print(f"[green]ok[/] {json_path.name} -> {out_path.name}")
 
 
 @app.command(help="Abre a interface de terminal (TUI Textual).")

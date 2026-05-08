@@ -3,7 +3,7 @@
 Cada run em ``tests/fixtures/parity/runs/<id>/`` carrega:
 - ``debug.txt`` — log com pares TX/RX por linha
 - ``result.csv`` — saída CSV de resistividade
-- ``job.json`` — JSON do job que foi executado
+- ``job.toml`` — job em formato v2
 
 O addr.dat é compartilhado em ``tests/fixtures/parity/addr.dat``. Marker
 ``parity`` permite rodar separado se necessário.
@@ -35,7 +35,7 @@ def _run_ids() -> list[str]:
         return []
     return sorted(
         p.name for p in RUNS_DIR.iterdir()
-        if p.is_dir() and (p / "debug.txt").exists() and (p / "job.json").exists()
+        if p.is_dir() and (p / "debug.txt").exists() and (p / "job.toml").exists()
     )
 
 
@@ -49,7 +49,7 @@ def test_parity_tx_and_csv(tmp_path, run_dir):
     """TX byte-a-byte + CSV numérico contra o run gravado."""
     debug_path = run_dir / "debug.txt"
     csv_path = run_dir / "result.csv"
-    job_path = run_dir / "job.json"
+    job_path = run_dir / "job.toml"
     expected_df = pd.read_csv(csv_path, sep=";")
 
     events = parse_debug_file(debug_path)

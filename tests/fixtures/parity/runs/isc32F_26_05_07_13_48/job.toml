@@ -1,0 +1,419 @@
+name = "ISC32F"
+
+[field]
+eletrodos = 32
+spa_x = 1
+ini_x = 1
+
+[defaults]
+stack = 7
+corrente_ma = 50
+linha = "data"
+ciclo = 54
+
+[[steps]]
+task = "ligar"
+
+[[steps]]
+task = "chamada"
+
+[[steps]]
+step = 4
+task = "fullwave"
+injecao = [2, 3]
+dipolo = [1, 4]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [3, 4]
+dipolo = [2, 5, 1, 6]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [4, 5]
+dipolo = [3, 6, 2, 7, 1, 8]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [5, 6]
+dipolo = [4, 7, 3, 8, 2, 9, 1, 10]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [5, 7]
+dipolo = [1, 11]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [6, 7]
+dipolo = [5, 8, 4, 9, 3, 10, 2, 11]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [6, 8]
+dipolo = [2, 12]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [7, 8]
+dipolo = [6, 9, 5, 10, 4, 11, 3, 12]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [7, 9]
+dipolo = [3, 13, 1, 15]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [8, 9]
+dipolo = [7, 10, 6, 11, 5, 12, 4, 13]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [8, 10]
+dipolo = [4, 14, 2, 16]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [9, 10]
+dipolo = [8, 11, 7, 12, 6, 13, 5, 14]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [9, 11]
+dipolo = [5, 15, 3, 17, 1, 19]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [10, 11]
+dipolo = [9, 12, 8, 13, 7, 14, 6, 15]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [10, 12]
+dipolo = [6, 16, 4, 18, 2, 20]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [10, 13]
+dipolo = [1, 22]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [11, 12]
+dipolo = [10, 13, 9, 14, 8, 15, 7, 16]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [11, 13]
+dipolo = [7, 17, 5, 19, 3, 21]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [11, 14]
+dipolo = [2, 23]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [12, 13]
+dipolo = [11, 14, 10, 15, 9, 16, 8, 17]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [12, 14]
+dipolo = [8, 18, 6, 20, 4, 22]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [12, 15]
+dipolo = [3, 24]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [13, 14]
+dipolo = [12, 15, 11, 16, 10, 17, 9, 18]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [13, 15]
+dipolo = [9, 19, 7, 21, 5, 23]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [13, 16]
+dipolo = [4, 25, 1, 28]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [13, 17]
+dipolo = [1, 29]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [14, 15]
+dipolo = [13, 16, 12, 17, 11, 18, 10, 19]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [14, 16]
+dipolo = [10, 20, 8, 22, 6, 24]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [14, 17]
+dipolo = [5, 26, 2, 29]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [14, 18]
+dipolo = [2, 30]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [15, 16]
+dipolo = [14, 17, 13, 18, 12, 19, 11, 20]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [15, 17]
+dipolo = [11, 21, 9, 23, 7, 25]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [15, 18]
+dipolo = [6, 27, 3, 30]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [15, 19]
+dipolo = [3, 31]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [16, 17]
+dipolo = [15, 18, 14, 19, 13, 20, 12, 21]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [16, 18]
+dipolo = [12, 22, 10, 24, 8, 26]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [16, 19]
+dipolo = [7, 28, 4, 31]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [16, 20]
+dipolo = [4, 32]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [17, 18]
+dipolo = [16, 19, 15, 20, 14, 21, 13, 22]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [17, 19]
+dipolo = [13, 23, 11, 25, 9, 27]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [17, 20]
+dipolo = [8, 29, 5, 32]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [18, 19]
+dipolo = [17, 20, 16, 21, 15, 22, 14, 23]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [18, 20]
+dipolo = [14, 24, 12, 26, 10, 28]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [18, 21]
+dipolo = [9, 30]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [19, 20]
+dipolo = [18, 21, 17, 22, 16, 23, 15, 24]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [19, 21]
+dipolo = [15, 25, 13, 27, 11, 29]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [19, 22]
+dipolo = [10, 31]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [20, 21]
+dipolo = [19, 22, 18, 23, 17, 24, 16, 25]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [20, 22]
+dipolo = [16, 26, 14, 28, 12, 30]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [20, 23]
+dipolo = [11, 32]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [21, 22]
+dipolo = [20, 23, 19, 24, 18, 25, 17, 26]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [21, 23]
+dipolo = [17, 27, 15, 29, 13, 31]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [22, 23]
+dipolo = [21, 24, 20, 25, 19, 26, 18, 27]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [22, 24]
+dipolo = [18, 28, 16, 30, 14, 32]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [23, 24]
+dipolo = [22, 25, 21, 26, 20, 27, 19, 28]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [23, 25]
+dipolo = [19, 29, 17, 31]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [24, 25]
+dipolo = [23, 26, 22, 27, 21, 28, 20, 29]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [24, 26]
+dipolo = [20, 30, 18, 32]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [25, 26]
+dipolo = [24, 27, 23, 28, 22, 29, 21, 30]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [25, 27]
+dipolo = [21, 31]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [26, 27]
+dipolo = [25, 28, 24, 29, 23, 30, 22, 31]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [26, 28]
+dipolo = [22, 32]
+canais = [1]
+
+[[steps]]
+task = "fullwave"
+injecao = [27, 28]
+dipolo = [26, 29, 25, 30, 24, 31, 23, 32]
+canais = [1, 3, 5, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [28, 29]
+dipolo = [27, 30, 26, 31, 25, 32]
+canais = [1, 3, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [29, 30]
+dipolo = [28, 31, 27, 32]
+canais = [1, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [30, 31]
+dipolo = [29, 32]
+canais = [1]
+
+[[steps]]
+step = 71
+task = "exportar_dat"

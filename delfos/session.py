@@ -187,6 +187,14 @@ class Session:
         name = base_name or job.name
         self._results = ResultsStore(self._paths, base_name=name)
         self._logs = LogWriter(self._paths, base_name=name)
+        if job.field:
+            self._field.reconfigure(**{
+                k: v for k, v in job.field.items()
+                if k in ("n_electrodes", "spa_x", "spa_y", "ini_x", "ini_y")
+            })
+            # alias de schema TOML: `eletrodos` (PT) → `n_electrodes`
+            if "eletrodos" in job.field:
+                self._field.reconfigure(n_electrodes=job.field["eletrodos"])
         runner = JobRunner(
             self._central,
             self._units,

@@ -57,7 +57,7 @@ def set_electrodes_all_boards(
         target = field.apply_redirects(electrodes)
 
     for _, row in units.get_switches().iterrows():
-        per_board = units.electrodes_for_order(target, int(row["order"]))
+        per_board = units.electrodes_for_slot(target, int(row["slot"]))
         addr = Units.addr_from_row(row)
         central.set_electrodes(addr, electrodes=per_board, line=line)
 

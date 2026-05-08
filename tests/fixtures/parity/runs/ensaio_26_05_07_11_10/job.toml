@@ -1,0 +1,327 @@
+name = "ensaio"
+
+[field]
+eletrodos = 100
+spa_x = 1
+ini_x = 0
+
+[defaults]
+stack = 10
+corrente_ma = 30
+linha = "data"
+canais = [1]
+ciclo = 54
+
+[[steps]]
+task = "ligar"
+
+[[steps]]
+task = "chamada"
+
+[[steps]]
+task = "fullwave"
+injecao = [1, 4]
+dipolo = [2, 3]
+
+[[steps]]
+task = "fullwave"
+injecao = [2, 5]
+dipolo = [3, 4]
+
+[[steps]]
+task = "fullwave"
+injecao = [3, 6]
+dipolo = [4, 5]
+
+[[steps]]
+task = "fullwave"
+injecao = [4, 7]
+dipolo = [5, 6]
+
+[[steps]]
+task = "fullwave"
+injecao = [5, 8]
+dipolo = [6, 7]
+
+[[steps]]
+task = "fullwave"
+injecao = [6, 9]
+dipolo = [7, 8]
+
+[[steps]]
+task = "fullwave"
+injecao = [7, 10]
+dipolo = [8, 9]
+
+[[steps]]
+task = "fullwave"
+injecao = [8, 11]
+dipolo = [9, 10]
+
+[[steps]]
+task = "fullwave"
+injecao = [9, 12]
+dipolo = [10, 11]
+
+[[steps]]
+task = "fullwave"
+injecao = [10, 13]
+dipolo = [11, 12]
+
+[[steps]]
+task = "fullwave"
+injecao = [11, 14]
+dipolo = [12, 13]
+
+[[steps]]
+task = "fullwave"
+injecao = [12, 15]
+dipolo = [13, 14]
+
+[[steps]]
+task = "fullwave"
+injecao = [13, 16]
+dipolo = [14, 15]
+
+[[steps]]
+task = "fullwave"
+injecao = [14, 17]
+dipolo = [15, 16]
+
+[[steps]]
+task = "fullwave"
+injecao = [15, 18]
+dipolo = [16, 17]
+
+[[steps]]
+task = "fullwave"
+injecao = [16, 19]
+dipolo = [17, 18]
+
+[[steps]]
+task = "fullwave"
+injecao = [17, 20]
+dipolo = [18, 19]
+
+[[steps]]
+task = "fullwave"
+injecao = [18, 21]
+dipolo = [19, 20]
+
+[[steps]]
+task = "fullwave"
+injecao = [19, 22]
+dipolo = [20, 21]
+
+[[steps]]
+task = "fullwave"
+injecao = [20, 23]
+dipolo = [21, 22]
+
+[[steps]]
+task = "fullwave"
+injecao = [21, 24]
+dipolo = [22, 23]
+
+[[steps]]
+task = "fullwave"
+injecao = [22, 25]
+dipolo = [23, 24]
+
+[[steps]]
+task = "fullwave"
+injecao = [23, 26]
+dipolo = [24, 25]
+
+[[steps]]
+task = "fullwave"
+injecao = [24, 27]
+dipolo = [25, 26]
+
+[[steps]]
+task = "fullwave"
+injecao = [25, 28]
+dipolo = [26, 27]
+
+[[steps]]
+task = "fullwave"
+injecao = [26, 29]
+dipolo = [27, 28]
+
+[[steps]]
+task = "fullwave"
+injecao = [27, 30]
+dipolo = [28, 29]
+
+[[steps]]
+task = "fullwave"
+injecao = [28, 31]
+dipolo = [29, 30]
+
+[[steps]]
+task = "fullwave"
+injecao = [29, 32]
+dipolo = [30, 31]
+
+[[steps]]
+task = "fullwave"
+injecao = [30, 33]
+dipolo = [31, 32]
+
+[[steps]]
+task = "fullwave"
+injecao = [31, 34]
+dipolo = [32, 33]
+
+[[steps]]
+task = "fullwave"
+injecao = [32, 35]
+dipolo = [33, 34]
+
+[[steps]]
+task = "fullwave"
+injecao = [33, 36]
+dipolo = [34, 35]
+
+[[steps]]
+task = "fullwave"
+injecao = [34, 37]
+dipolo = [35, 36]
+
+[[steps]]
+task = "fullwave"
+injecao = [35, 38]
+dipolo = [36, 37]
+
+[[steps]]
+task = "fullwave"
+injecao = [36, 39]
+dipolo = [37, 38]
+
+[[steps]]
+task = "fullwave"
+injecao = [37, 40]
+dipolo = [38, 39]
+
+[[steps]]
+task = "fullwave"
+injecao = [38, 41]
+dipolo = [39, 40]
+
+[[steps]]
+task = "fullwave"
+injecao = [39, 42]
+dipolo = [40, 41]
+
+[[steps]]
+task = "fullwave"
+injecao = [40, 43]
+dipolo = [41, 42]
+
+[[steps]]
+task = "fullwave"
+injecao = [41, 44]
+dipolo = [42, 43]
+
+[[steps]]
+task = "fullwave"
+injecao = [42, 45]
+dipolo = [43, 44]
+
+[[steps]]
+task = "fullwave"
+injecao = [43, 46]
+dipolo = [44, 45]
+
+[[steps]]
+task = "fullwave"
+injecao = [44, 47]
+dipolo = [45, 46]
+
+[[steps]]
+task = "fullwave"
+injecao = [45, 48]
+dipolo = [46, 47]
+
+[[steps]]
+task = "fullwave"
+injecao = [46, 49]
+dipolo = [47, 48]
+
+[[steps]]
+task = "fullwave"
+injecao = [47, 50]
+dipolo = [48, 49]
+
+[[steps]]
+task = "fullwave"
+injecao = [48, 51]
+dipolo = [49, 50]
+
+[[steps]]
+task = "fullwave"
+injecao = [49, 52]
+dipolo = [50, 51]
+
+[[steps]]
+task = "fullwave"
+injecao = [50, 53]
+dipolo = [51, 52]
+
+[[steps]]
+task = "fullwave"
+injecao = [51, 54]
+dipolo = [52, 53]
+
+[[steps]]
+task = "fullwave"
+injecao = [52, 55]
+dipolo = [53, 54]
+
+[[steps]]
+task = "fullwave"
+injecao = [53, 56]
+dipolo = [54, 55]
+
+[[steps]]
+task = "fullwave"
+injecao = [54, 57]
+dipolo = [55, 56]
+
+[[steps]]
+task = "fullwave"
+injecao = [55, 58]
+dipolo = [56, 57]
+
+[[steps]]
+task = "fullwave"
+injecao = [56, 59]
+dipolo = [57, 58]
+
+[[steps]]
+task = "fullwave"
+injecao = [57, 60]
+dipolo = [58, 59]
+
+[[steps]]
+task = "fullwave"
+injecao = [58, 61]
+dipolo = [59, 60]
+
+[[steps]]
+task = "fullwave"
+injecao = [59, 62]
+dipolo = [60, 61]
+
+[[steps]]
+task = "fullwave"
+injecao = [60, 63]
+dipolo = [61, 62]
+
+[[steps]]
+task = "fullwave"
+injecao = [61, 64]
+dipolo = [62, 63]
+
+[[steps]]
+task = "desligar"

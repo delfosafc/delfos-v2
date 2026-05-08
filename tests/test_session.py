@@ -33,9 +33,9 @@ from delfos.protocol import Command
 
 def _write_addr(p: Path, *, channel_id: int = 0x10) -> Path:
     p.write_text(
-        "id;end1;end2;serial;order;channel\n"
-        f"1;0x{channel_id:02x};0x80;100;0;1\n"
-        "2;0x20;0xff;200;1;255\n",
+        "addr;kind;slot;channel;serial\n"
+        f"0x{channel_id:02x}80;channel;;1;100\n"
+        "0x20ff;switch;1;;200\n",
         encoding="utf-8",
     )
     return p
@@ -265,13 +265,13 @@ def test_enderecos_task_reloads_units_in_place(tmp_path, fake_transport):
     s.paths.system.mkdir(parents=True, exist_ok=True)
     second = s.paths.system / "second.dat"
     second.write_text(
-        "id;end1;end2;serial;order;channel\n"
-        "1;0x42;0x80;999;0;1\n",
+        "addr;kind;slot;channel;serial\n"
+        "0x4280;channel;;1;999\n",
         encoding="utf-8",
     )
 
     units_obj = s.units
-    assert int(units_obj.df.loc[1, "end1"]) == 0x10
+    assert int(units_obj.df.loc[1, "addr"]) == 0x1080
 
     s.run_job(Job(name="reload", steps=[
         Step(step=1, task="enderecos", params={"arquivo": "second"}),
@@ -279,7 +279,7 @@ def test_enderecos_task_reloads_units_in_place(tmp_path, fake_transport):
 
     # Mesma instância, conteúdo novo.
     assert s.units is units_obj
-    assert int(s.units.df.loc[1, "end1"]) == 0x42
+    assert int(s.units.df.loc[1, "addr"]) == 0x4280
 
 
 # =============================================================================

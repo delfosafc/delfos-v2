@@ -22,3 +22,6 @@ class Step:
 class Job:
     steps: list[Step]
     name: str = "unnamed"
+    # Configuração inicial do campo (opcional, do header [field] do TOML v2).
+    # Quando presente, Session aplica antes do primeiro step de medida.
+    field: dict[str, Any] | None = None

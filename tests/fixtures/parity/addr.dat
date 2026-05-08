@@ -1,7 +1,7 @@
-id;end1;end2;serial;order;channel
-1;0x00;0x80;32770;0;1
-2;0x02;0x80;32770;0;3
-3;0x04;0x80;32770;0;5
-4;0x06;0x80;32770;0;7
-5;0x6C;0xff;65378;1;255
-6;0x6D;0xff;65378;2;255
+addr;kind;slot;channel;serial
+0x0080;channel;;1;32770
+0x0280;channel;;3;32770
+0x0480;channel;;5;32770
+0x0680;channel;;7;32770
+0x6Cff;switch;1;;65378
+0x6Dff;switch;2;;65378

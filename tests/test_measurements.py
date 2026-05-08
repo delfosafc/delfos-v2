@@ -26,14 +26,14 @@ from delfos.units import Units
 
 def _write_addr_dat(p: Path, *, with_channel_2: bool = False) -> Path:
     lines = [
-        "id;end1;end2;serial;order;channel",
-        "1;0x10;0x80;100;0;1",
+        "addr;kind;slot;channel;serial",
+        "0x1080;channel;;1;100",
     ]
     if with_channel_2:
-        lines.append("2;0x12;0x80;101;0;2")
-        lines.append("3;0x20;0xff;200;1;255")
+        lines.append("0x1280;channel;;2;101")
+        lines.append("0x20ff;switch;1;;200")
     else:
-        lines.append("2;0x20;0xff;200;1;255")
+        lines.append("0x20ff;switch;1;;200")
     p.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return p
 
