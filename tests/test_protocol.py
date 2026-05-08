@@ -116,8 +116,18 @@ def test_response_frame_parse_ack():
 
 
 def test_response_frame_rejects_short():
-    with pytest.raises(ValueError, match="16 bytes"):
-        ResponseFrame.parse(bytes(15))
+    # Mínimo são 14 bytes (firmware emite 14 na maioria dos comandos).
+    with pytest.raises(ValueError, match="14 bytes"):
+        ResponseFrame.parse(bytes(13))
+
+
+def test_response_frame_accepts_14_byte_frame():
+    # Firmware atual emite 14 bytes (sem os 2 pads finais).
+    raw = bytearray(14)
+    raw[0] = 0x7F
+    raw[3] = 0x4B  # CMD
+    resp = ResponseFrame.parse(bytes(raw))
+    assert resp.cmd == 0x4B
 
 
 def test_response_frame_rejects_bad_sof():

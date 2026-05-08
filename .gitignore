@@ -31,5 +31,7 @@ files/*/seg2 split/
 .vscode/
 *.swp
 
-# Claude Code — settings locais (não compartilhar)
-.claude/settings.local.json
+# Claude Code — só compartilhar settings.json (config de equipe);
+# locks e settings.local.json ficam fora do repo.
+.claude/*
+!.claude/settings.json

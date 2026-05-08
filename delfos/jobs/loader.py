@@ -64,6 +64,10 @@ def load_job(path: str | Path) -> Job:
         params = {k: v for k, v in entry.items() if k not in ("step", "task")}
         params, migrated = _migrate_legacy_dipolo(params)
         saw_legacy_dipolo |= migrated
+        # ``canais`` aceita escalar no formato legado (``"canais": 1``);
+        # normaliza para lista — measurements iteram sobre a lista.
+        if "canais" in params and isinstance(params["canais"], int):
+            params["canais"] = [params["canais"]]
         steps.append(
             Step(step=int(entry["step"]), task=task, params=params)
         )

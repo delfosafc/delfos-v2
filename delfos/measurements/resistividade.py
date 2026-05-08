@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from delfos.central import Central
+from delfos.central import Central, ProtocolError
 from delfos.events import EventBus, MeasurementSample, NullBus
 from delfos.field import Field
 from delfos.measurements._helpers import (
@@ -65,13 +65,21 @@ def resistividade(
             return False
         ur = units.ur_from_channel(channel)
         addr = Units.addr_from_row(ur)
-        vp = central.read_vp(addr)
+        try:
+            vp = central.read_vp(addr)
+        except ProtocolError:
+            # Unidade não respondeu — comporta como o legado (n_pulsos=0)
+            # e sinaliza retry. Retorna True pra runner repetir o step.
+            return True
         if vp.n_pulsos <= 1:
             return True
 
         fullwave_str: str | int = 0
         if is_fullwave:
-            fw = central.read_fullwave(addr)
+            try:
+                fw = central.read_fullwave(addr)
+            except ProtocolError:
+                return True
             fullwave_str = fullwave_to_string(fw)
 
         pos_a = field.pos(current_elec[0])

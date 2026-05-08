@@ -26,7 +26,10 @@ packages = ["delfos"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-markers = ["hw: tests that require connected hardware"]
+markers = [
+    "hw: tests that require connected hardware",
+    "parity: tests that replay real switch.py captures",
+]
 
 [tool.ruff]
 line-length = 100

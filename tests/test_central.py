@@ -112,8 +112,8 @@ def test_set_electrodes_mr64(fake_transport, make_response):
                   1, 2, 4, 5, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]  # S0..S8
     c.set_electrodes(addr=0x0010, electrodes=electrodes, line=1)
     sent = fake_transport.writes[0]
-    # Frame MR64 = 18 bytes
-    assert len(sent) == 18
+    # Frame MR64 = 19 bytes (7 header + 11 extras + 1 pad final)
+    assert len(sent) == 19
     assert sent[0:4] == bytes([SOF, 0x00, 0x10, 0x52])
     assert sent[4] == 0xAA  # sub-comando "conecta"
     assert sent[5] == 3     # I+
@@ -121,7 +121,8 @@ def test_set_electrodes_mr64(fake_transport, make_response):
     # S0..S8 + line + vago
     assert sent[7:16] == bytes([1, 2, 4, 5, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF])
     assert sent[16] == 1    # line
-    assert sent[17] == 0    # vago
+    assert sent[17] == 0    # vago1
+    assert sent[18] == 0    # pad final
 
 
 def test_set_electrodes_validates_count():

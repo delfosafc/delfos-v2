@@ -36,9 +36,14 @@ from enum import IntEnum, IntFlag
 # =============================================================================
 
 SOF = 0x7F
+# Tamanho da struct UCToConsoleTrxData no firmware: 16 bytes. Os 2 últimos
+# (14-15) são pad e a Central frequentemente emite só os 14 primeiros.
 RESPONSE_FRAME_SIZE = 16
+RESPONSE_FRAME_MIN_SIZE = 14
 COMMAND_FRAME_SIZE_UASG = 7
-COMMAND_FRAME_SIZE_MR64 = 18
+# 19 bytes = 7 (header) + 11 extras + 1 pad final que o firmware ignora
+# mas o transmissor emite por convenção.
+COMMAND_FRAME_SIZE_MR64 = 19
 
 BROADCAST_ADDR_HIGH = 0xFF
 BROADCAST_ADDR_LOW = 0xFD
@@ -555,13 +560,13 @@ def build_command_frame(
 
     is_mr64 = cmd == Command.CONEX_ELETRODO and p1 >= 0x55
     if is_mr64:
-        # Frame de 18 bytes: SOF + ADDH + ADDL + CMD + P1 + P2 + P3 + 11 bytes extras
+        # Frame de 19 bytes: 7 header + 11 extras + 1 pad final.
         if len(extras) != 11:
             raise ValueError(
                 f"Frame MR64 (CONEX_ELETRODO p1>=0x55) precisa de exatamente 11 bytes "
                 f"em extras (S0..S8 + 2 vagos), recebido {len(extras)}"
             )
-        return bytes([SOF, addh, addl, int(cmd), p1, p2, p3]) + extras
+        return bytes([SOF, addh, addl, int(cmd), p1, p2, p3]) + extras + b"\x00"
 
     if extras:
         raise ValueError("extras só é válido em frame MR64 (CONEX_ELETRODO p1>=0x55)")
@@ -632,9 +637,10 @@ class ResponseFrame:
 
     @classmethod
     def parse(cls, raw: bytes) -> ResponseFrame:
-        if len(raw) < RESPONSE_FRAME_SIZE:
+        if len(raw) < RESPONSE_FRAME_MIN_SIZE:
             raise ValueError(
-                f"Frame de resposta precisa de {RESPONSE_FRAME_SIZE} bytes, recebido {len(raw)}"
+                f"Frame de resposta precisa de >= {RESPONSE_FRAME_MIN_SIZE} bytes, "
+                f"recebido {len(raw)}"
             )
         if raw[0] != SOF:
             raise ValueError(f"SOF inválido: esperado 0x{SOF:02X}, recebido 0x{raw[0]:02X}")
